@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react component bound to controller</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .main-container {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
+        input[type=text]{
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="app">
+
+<div class="main-container">
+    <div ng-controller="BoundToDirectiveController as vm">
+        <h1>AnyTable-Data</h1>
+        <div class="row">
+            <div class="col-md-4"><button ng-click="vm.regenerate()" class="btn btn-info pull-right">Cycle TableData</button></div>
+            <div class="col-md-4">
+                <input type="text" placeholder="i trigger a live update.." ng-model="vm.liveUpdate" class="form-control"/>
+            </div>
+            <div class="col-md-4">
+                <input type="text" placeholder="filter by first name (case sensitive)" ng-model="vm.filterQuery" ng-change="vm.filterTable(vm.filterQuery)" class="form-control"/>
+            </div>
+        </div>
+        <bound-to-directive table="vm.tableViewData" on-col-click="vm.sortTable" live-update="vm.liveUpdate"></bound-to-directive>
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/react/react.js"></script>
+<script src="bower_components/react/react-dom.js"></script>
+<script src="bower_components/ngreact/ngReact.min.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/components/bound-to-directive/bound-to-directive.js"></script>
+
+</body>
+</html>

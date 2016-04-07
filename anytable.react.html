@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>any table - react</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .main-container {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
+        input[type=text]{
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="app">
+
+<div class="main-container">
+    <div ng-controller="AnytableController as vm">
+        <h1>AnyTable-Data</h1>
+        <div class="row">
+            <div class="col-md-12"><button ng-click="vm.regenerate()" class="btn btn-info pull-right">Cycle TableData</button></div>
+        </div>
+
+        <react-any-table table="vm.tableData" row-click="vm.rowClick"></react-any-table>
+
+
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/react/react.js"></script>
+<script src="bower_components/react/react-dom.js"></script>
+<script src="bower_components/ngreact/ngReact.min.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/components/react-anytable/react-anytable.js"></script>
+
+</body>
+</html>

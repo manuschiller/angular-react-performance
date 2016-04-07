@@ -1,0 +1,13 @@
+<table class="table table-striped">
+    <thead>
+        <th ng-repeat="col in tableData.cols track by $index">{{col}}</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in tableData.rows track by $index">
+            <td ng-repeat="col in row">
+                {{col}}
+            </td>
+        </tr>
+    </tbody>
+
+</table>

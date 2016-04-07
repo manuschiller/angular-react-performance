@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>activity: react component</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .main-container {
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body ng-app="app">
+
+<div class="main-container">
+    <div ng-controller="ActivityController as vm">
+        <h1>Favourite Quotes</h1>
+        <p><button ng-click="vm.refreshActivities()">Cycle Activities</button></p>
+        <react-activity activities="vm.activities"></react-activity>
+
+
+
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/react/react.js"></script>
+<script src="bower_components/react/react-dom.js"></script>
+<script src="bower_components/ngreact/ngReact.min.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/components/react-activity/react-activity.js"></script>
+
+</body>
+</html>
