@@ -16,7 +16,7 @@
                 var rows = [];
                 var names = ["Peter","Paul","Mary","Manu","Niels","Jens","Oliver","Henriette"];
 
-                var numberOfRows = 2500;
+                var numberOfRows = 1000;
 
                 for ( var i = 0; i <= numberOfRows; i++ ) {
                     var randomEntry = Math.floor(Math.random() * numberOfRows) + 1;
@@ -48,7 +48,6 @@
 
             var regenerate = function(){
                 tableData.rows = generateRows();
-                return tableData;
             };
 
             return{
@@ -123,7 +122,9 @@
         this.tableViewData = angular.copy(this.tableData);
 
         this.regenerate = function() {
-            this.tableData = TableData.regenerate();
+            TableData.regenerate();
+            this.tableData = TableData.tableData;
+            this.tableViewData = angular.copy(TableData.tableData);
         };
 
         this.sortTable = function(col){
@@ -137,6 +138,14 @@
                 if(a[col] < b[col]) return vm.filterDirection;
             });
 
+        };
+
+        this.updateSingelValue = function(){
+            var d = new Date();
+            vm.tableData.rows[5][5] = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + "." + d.getMilliseconds();
+            console.time("copy tableData");
+            vm.tableViewData = angular.copy(vm.tableData);
+            console.timeEnd("copy tableData");
         };
 
         this.filterTable = function(query){
