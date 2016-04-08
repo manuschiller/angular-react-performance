@@ -100,7 +100,7 @@
 
                     return React.DOM.tr( { key: i }, row.map( function( cell, j ) {
                         //if(j == 0) cell = self.props.firstName;
-                        if(self.props.liveUpdate.length != 0 && j == 0) cell = self.props.liveUpdate;
+                        if(self.props.liveUpdate.length != 0 && j == 0 && i == 0) cell = self.props.liveUpdate;
                         return React.DOM.td( { key: j }, cell );
                     } ) );
                 } ) );

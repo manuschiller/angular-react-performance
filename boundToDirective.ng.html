@@ -22,7 +22,10 @@
     <div ng-controller="BoundToDirectiveController as vm">
         <h1>AnyTable-Data</h1>
         <div class="row">
-            <div class="col-md-4"><button class="btn btn-info pull-right" ng-click="vm.regenerate()">Cycle TableData</button></div>
+            <div class="col-md-4">
+                <button ng-click="vm.updateSingelValue()" class="btn btn-info pull-right">Update Single Value</button>
+                <button class="btn btn-info pull-right" ng-click="vm.regenerate()">Cycle TableData</button>
+            </div>
             <div class="col-md-4">
                 <input type="text" placeholder="i trigger a live update.." ng-model="vm.liveUpdate" class="form-control"/>
             </div>
